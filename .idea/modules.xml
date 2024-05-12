@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/gadget-service.iml" filepath="$PROJECT_DIR$/gadget-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gadgets_store.iml" filepath="$PROJECT_DIR$/.idea/modules/gadgets_store.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gadgets_store.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gadgets_store.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gadgets_store.test.iml" filepath="$PROJECT_DIR$/.idea/modules/gadgets_store.test.iml" />
