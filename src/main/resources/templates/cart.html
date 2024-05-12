@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Корзина</title>
+</head>
+
+<div layout:fragment="content">
+    <div class="container mt-5 text-light bg-black p-5 rounded-5 mb-5">
+        <h1 class="mb-4">Корзина</h1>
+        <div class="row mb-5">
+            <div class="col-md-12">
+                <div class="site-blocks-table">
+                    <table class="table table-bordered text-light">
+                        <thead>
+                        <tr>
+                            <th class="gadget-thumbnail">Изображение</th>
+                            <th class="gadget-name">Название</th>
+                            <th class="gadget-price">Цена</th>
+                            <th class="gadget-remove">Удалить</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="gadget: ${gadgets}" class="text-light">
+                            <td class="gadget-thumbnail">
+                                <img th:src="${gadget.getImage()}" alt="Image" class="img-fluid" style="width: 150px; height: 150px">
+                            </td>
+                            <td class="gadget-name">
+                                <h2 th:text="${gadget.getName()}" class="h5"></h2>
+                            </td>
+                            <td th:text="${gadget.getPrice()} + ' руб.'"></td>
+                            <td><form th:method="post" th:action="@{/cart/remove-gadget/{id}(id=${gadget.getId()})}"><button type="submit" class="btn btn-secondary btn-lg">X</button></form></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <h3 class="text-light" th:text="'Общая сумма: ' + ${totalPrice} + ' руб.'"></h3>
+
+        <form th:method="POST" th:action="@{/cart/create-order}"><button class="btn btn-outline-success btn-lg btn-block">Заказать</button></form>
+    </div>
+</div>
+
+</html>
